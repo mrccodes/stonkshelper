@@ -1,5 +1,20 @@
 .stonkForm {
  display: flex;
  flex-direction: column;
- max-width: 400px;
+ max-width: 300px;
+ padding: 20px 20px;
+ margin: 0px auto;
+ label {
+   display: flex;
+   justify-content: space-between;
+
+ }
+
+ input, select {
+   margin: 5px;
+   width: 60px;
+ }
+ select {
+   width: 90px;
+ }
 }

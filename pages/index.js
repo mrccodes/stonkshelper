@@ -23,8 +23,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.btnHolder}>
-        <button className={formSelect === 0 ? styles.selectedBtn : styles.defaultBtn} onClick={() => {setFormSelect(0)}}> Get R/R and ROI</button>
         <button className={formSelect === 1 ? styles.selectedBtn : styles.defaultBtn}  onClick={() => {setFormSelect(1)}}> Find Stop and Target</button>
+        <button className={formSelect === 0 ? styles.selectedBtn : styles.defaultBtn} onClick={() => {setFormSelect(0)}}> Get R/R and ROI</button>
 
       </div>
       {renderForm()}
