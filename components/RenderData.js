@@ -7,6 +7,9 @@ export const RenderData = (data) => {
     const prettyPercent = (num) => {
       return (`${Math.round(num * 100) / 100}%`)
     }
+    const prettyDollars = (num) => {
+      return (`$${Math.round(num * 100) / 100}`)
+    }
 
   if (data.formType === 0) {
     const { shares, entry, stop, target } = data;
@@ -29,23 +32,23 @@ export const RenderData = (data) => {
       <div className={styles.data}>
         <div>
           <p>Total Investement:</p>
-          <p>{totalInvestment}</p>
+          <p>{prettyDollars(totalInvestment.toString())}</p>
         </div>
         <div>
           <p>Max Loss: </p>
-          <p>${maxLoss}</p>
+          <p>{prettyDollars(maxLoss.toString()) }</p>
         </div>
         <div>
           <p>Max Profit: </p>
-          <p>${maxProfit}</p>
+          <p>{prettyDollars(maxProfit.toString())}</p>
         </div>
         <div>
           <p>R/R: </p>
-          <p>{riskReward[1]}/{riskReward[0]}</p>
+          <p>{riskReward[1].toString()}/{riskReward[0].toString()}</p>
         </div>
         <div>
           <p>Potential ROI: </p>
-          <p> {prettyRoi}</p>
+          <p> {prettyRoi.toString()}</p>
         </div>
 
 
@@ -97,15 +100,15 @@ export const RenderData = (data) => {
      <div className={styles.data}>
        <div>
          <p>Total Investement: </p>
-         <p>{totalInvestment.toString()}</p>
+         <p>{prettyDollars(totalInvestment.toString())}</p>
        </div>
        <div>
          <p> Stop Loss: </p>
-         <p>${stop.toString()}</p>
+         <p>{prettyDollars(stop.toString())}</p>
        </div>
        <div>
          <p>Target:</p>
-         <p>{target.toString()}</p>
+         <p>{prettyDollars(target.toString())}</p>
        </div>
        <div>
          <p> R/R: </p>
@@ -117,7 +120,7 @@ export const RenderData = (data) => {
        </div>
       <div>
         <p>Potential Profit: </p>
-        <p>{potentialProfit.toString()}</p>
+        <p>{prettyDollars(potentialProfit.toString())}</p>
       </div>
      </div>
     )
