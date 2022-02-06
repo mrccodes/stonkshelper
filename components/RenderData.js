@@ -35,17 +35,19 @@ export const RenderData = (data) => {
           <p>{prettyDollars(totalInvestment.toString())}</p>
         </div>
         <div>
-          <p>Max Loss: </p>
-          <p>{prettyDollars(maxLoss.toString()) }</p>
-        </div>
-        <div>
-          <p>Max Profit: </p>
-          <p>{prettyDollars(maxProfit.toString())}</p>
-        </div>
-        <div>
           <p>R/R: </p>
           <p>{riskReward[1].toString()}/{riskReward[0].toString()}</p>
         </div>
+        <div>
+          <p>Potential Profit: </p>
+          <p>{prettyDollars(maxProfit.toString())}</p>
+        </div>
+        <div>
+          <p>Potential Loss: </p>
+          <p>{prettyDollars(maxLoss.toString()) }</p>
+        </div>
+
+
         <div>
           <p>Potential ROI: </p>
           <p> {prettyRoi.toString()}</p>
