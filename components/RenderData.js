@@ -1,5 +1,3 @@
-import { getROI }  from './helpers'
-
 export const RenderData = (data) => {
   const { shares, entry, stop, target } = data;
 
@@ -10,12 +8,17 @@ export const RenderData = (data) => {
       }
 
 
-
+    const prettyPercent = (num) => {
+      return (`${Math.round(num * 100) / 100}%`)
+    }
 
   if (data.formType === 0) {
     //roi form
-    let roi = ((((shares * target) - (shares * entry) ) / (shares * entry)) * 100);
-    let prettyRoi = `${Math.round(roi * 100) / 100}%`
+    let totalInvestment = shares * entry;
+    let maxLoss = totalInvestment - (shares * stop) ;
+    let maxProfit = (shares * target) - totalInvestment;
+    let roi = ((((shares * target) - totalInvestment ) / (shares * entry)) * 100);
+    let prettyRoi =  prettyPercent(roi)
 
     let riskReward = reduce(
       ((shares * target) - (shares * entry) ),
@@ -23,8 +26,14 @@ export const RenderData = (data) => {
     )
     return (
       <div>
-        ROI: {prettyRoi} <br />
-        R/R: {riskReward[1]}/{riskReward[0]}
+        Total Investement: {totalInvestment}<br />
+        Max Loss: ${maxLoss}<br />
+        Max Profit: ${maxProfit}<br />
+        R/R: {riskReward[1]}/{riskReward[0]} <br />
+        Potential ROI: {prettyRoi} <br />
+
+
+
       </div>
     )
 
