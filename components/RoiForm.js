@@ -17,10 +17,6 @@ export const RoiForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    //calculate my dam results
-
-
-
   }
 
   const onInputChange = (e) => {
@@ -35,30 +31,34 @@ export const RoiForm = () => {
 
 
   return (
+
     <form className={styles.stonkForm}onSubmit={onFormSubmit}>
       <label >
-        Shares:&nbsp;&nbsp;
+        Shares:
+
         <input onChange={onInputChange} step="5" value={state.shares} name="shares" type="number" />
       </label>
 
       <label >
-        Entry:&nbsp;&nbsp;
-        <input onChange={onInputChange} step="0.01" value={state.entry} name="entry" type="number" />
-      </label>
-      <label >
-        Stop Loss:&nbsp;&nbsp;
-        <input onChange={onInputChange} step="0.01" value={state.stop} name="stop" type="number" />
+        Entry:
+
+        <span>$<input onChange={onInputChange} step="0.01" value={state.entry} name="entry" type="number" /></span>
       </label>
 
       <label >
-        Target:&nbsp;&nbsp;
-        <input onChange={onInputChange} step="0.01" value={state.target} name="target" type="number" />
+        Stop Loss:
+
+        <span>$<input onChange={onInputChange} step="0.01" value={state.stop} name="stop" type="number"/></span>
       </label>
 
+      <label >
+        Target:
 
+        <span>$<input onChange={onInputChange} step="0.01" value={state.target} name="target" type="number" /></span>
+      </label>
 
-      {/* <input type="submit" name="submit" /> */}
       {RenderData(state)}
+
     </form>
   )
 }

@@ -6,7 +6,7 @@ import { ExitForm } from '../components/ExitForm.js'
 import { useState } from 'react'
 
 export default function Home() {
-  const [formSelect, setFormSelect] = useState(0)
+  const [formSelect, setFormSelect] = useState(1)
 
   const renderForm = () => {
     if (formSelect === 0) return <RoiForm />

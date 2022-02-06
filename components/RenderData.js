@@ -17,10 +17,12 @@ export const RenderData = (data) => {
     let maxProfit = (shares * target) - totalInvestment;
     let roi = ((((shares * target) - totalInvestment ) / (shares * entry)) * 100);
     let prettyRoi =  prettyPercent(roi)
+    let reward = Math.round(((shares * target) - (shares * entry) ));
+    let risk = Math.round( ((shares * entry) - (shares * stop) ))
 
     let riskReward = reduce(
-      ((shares * target) - (shares * entry) ),
-      ((shares * entry) - (shares * stop) )
+      reward ,
+      risk
     )
 
     return (
@@ -75,16 +77,19 @@ export const RenderData = (data) => {
       target = (totalInvestment + (maxLoss * Number(riskOption.slice(-1)))) / shares;
       stop = (totalInvestment - maxLoss) / shares;
     }
+    let reward = Math.round(((shares * target) - (shares * entry) ));
+    let risk = Math.round( ((shares * entry) - (shares * stop) ))
+
 
     let riskReward = reduce(
-      Math.round(((shares * target) - (shares * entry) )) ,
-      Math.round( ((shares * entry) - (shares * stop) ))
+      reward ,
+      risk
     )
 
 
     let calculatedRoi = ((((shares * target) - totalInvestment ) / (shares * entry)) * 100);
     let prettyRoi =  prettyPercent(calculatedRoi)
-
+    let potentialProfit = (target * shares) - totalInvestment;
 
 
     //exit form
@@ -92,28 +97,28 @@ export const RenderData = (data) => {
      <div className={styles.data}>
        <div>
          <p>Total Investement: </p>
-         <p>{totalInvestment}</p>
+         <p>{totalInvestment.toString()}</p>
        </div>
        <div>
          <p> Stop Loss: </p>
-         <p>${stop}</p>
+         <p>${stop.toString()}</p>
        </div>
        <div>
          <p>Target:</p>
-         <p>{target}</p>
+         <p>{target.toString()}</p>
        </div>
        <div>
          <p> R/R: </p>
-         <p>{riskReward[1]}/{riskReward[0]}</p>
+         <p>{riskReward[1].toString()}/{riskReward[0].toString()}</p>
        </div>
        <div>
          <p> ROI: </p>
-         <p>{prettyRoi}</p>
+         <p>{prettyRoi.toString()}</p>
        </div>
       <div>
         <p>Potential Profit: </p>
-        <p>{(target * shares) - totalInvestment}</p>
-      </div> 
+        <p>{potentialProfit.toString()}</p>
+      </div>
      </div>
     )
   }

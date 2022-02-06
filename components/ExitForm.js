@@ -26,15 +26,17 @@ export const ExitForm = () => {
     if (settings.determineBy === 'max') {
       return (
         <label>
-        Max Loss: &nbsp;$
-        <input value={state.maxLoss} onChange={onInputChange} name="maxLoss" type="number" step="0.01"/>
+        Max Loss:
+        <span>$<input value={state.maxLoss} onChange={onInputChange} name="maxLoss" type="number" step="0.01"/></span>
+
       </label>
       )
     } else if (settings.determineBy === 'roi') {
       return (
         <label>
           Desired ROI:
-          <input name="roi" value={state.roi}  onChange={onInputChange} type="number" step="0.01"/> %
+          <span><input name="roi" value={state.roi}  onChange={onInputChange} type="number" step="0.01"/>% </span>
+
         </label>
       )
     } else {
@@ -75,8 +77,8 @@ export const ExitForm = () => {
       </label>
 
       <label >
-        Entry:&nbsp;$
-        <input onChange={onInputChange} step="0.01" value={state.entry} name="entry" type="number" />
+        Entry:&nbsp;
+       <span>$<input className={styles.dollar} onChange={onInputChange} step="0.01" value={state.entry} name="entry" type="number" /></span>
       </label>
       <label >
         Desired R/R:&nbsp;&nbsp;
