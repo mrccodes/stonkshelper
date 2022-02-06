@@ -1,5 +1,25 @@
 .container {
   padding: 0 2rem;
+  max-width: 400px;
+}
+
+.btnHolder {
+  border: 1px solid #e7e7e7;
+  display: flex;
+  height: 30px;
+}
+
+.defaultBtn, .selectedBtn  {
+ border-radius: 0px;
+ box-shadow: none;
+ border: none;
+ width: 50%;
+ background-color: #fafafa;
+}
+
+.selectedBtn {
+  border: 1px solid #868686;
+  box-shadow: 0 0 6px #8b8989;
 }
 
 .main {
